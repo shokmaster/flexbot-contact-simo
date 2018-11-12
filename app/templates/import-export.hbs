@@ -1,9 +1,41 @@
 <div class="row">
   <div class="col-md-8 offset-md-2">
 
-    <p><button class="btn btn-primary" {{action 'goToIndex'}}>&laquo; Volver al inicio</button></p>
-    <p><button class="btn btn-info" {{action 'exportData'}}>Exportar</button></p>
-    <p><button class="btn btn-danger" {{action 'clearAll'}}>Limpiar todo</button></p>
+    <h4>{{model.length}} formularios</h4>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Email</th>
+          <th scope="col">Empresa</th>
+          <th scope="col">Comentario</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |cust|}}
+          <tr>
+            <th scope="row">{{cust.id}}</th>
+            <td><small>{{cust.createdAtString}}</small></td>
+            <td>{{cust.nombre}}</td>
+            <td>{{cust.apellidos}}</td>
+            <td>{{cust.email}}</td>
+            <td>{{cust.empresa}}</td>
+            <td>{{cust.comentario}}</td>
+            <td>{{cust.rating}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    <div class="btn-group" role="group">
+      <button class="btn btn-primary" {{action 'goToIndex'}}>&laquo; Volver al inicio</button>
+      <button class="btn btn-info" {{action 'exportData'}}>Exportar</button>
+      <button class="btn btn-danger" {{action 'clearAll'}}>Limpiar todo</button>
+    </div>
 
   </div>
 </div>

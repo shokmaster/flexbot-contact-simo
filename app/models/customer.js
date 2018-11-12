@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 const { Model, attr } = DS;
 
@@ -20,6 +21,10 @@ export default Model.extend({
 
   createdAt: attr('date', {
     defaultValue() { return new Date(); }
+  }),
+
+  createdAtString: computed('createdAt', function() {
+    return this.get('createdAt').toLocaleString('es');
   })
 
 });

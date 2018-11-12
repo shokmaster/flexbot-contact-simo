@@ -6,6 +6,10 @@ export default Route.extend({
 
   customerStorage: storageFor('customer'),
 
+  model() {
+    return this.get('store').findAll('customer');
+  },
+
   readFile: function(file) {
     const reader = new FileReader();
 
@@ -49,7 +53,7 @@ export default Route.extend({
       if (continuar) {
         this.get('customerStorage').clear();
         this.get('customerStorage').reset();
-        localStorage.clear()
+        localStorage.clear();
         //let key;
         //for (let i = 0; i < localStorage.length; i++) {
         //  key = localStorage.key(i);
