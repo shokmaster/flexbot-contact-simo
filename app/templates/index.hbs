@@ -1,0 +1,16 @@
+{{#unless isSaved}}
+
+<form>
+  {{input value=model.nombre placeholder="nombre"}}
+  {{input value=model.apellidos placeholder="apellidos"}}
+  {{input value=model.empresa placeholder="empresa"}}
+  {{textarea value=model.comentario}}
+  <button {{action "submit"}}>Enviar</button>
+</form>
+
+
+{{else}}
+
+  ¡Gracias! Contactaremos contigo próximamente.
+
+{{/unless}}
