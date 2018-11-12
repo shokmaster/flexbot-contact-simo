@@ -25,8 +25,19 @@ module.exports = function(environment) {
 
     'ember-local-storage': {
       fileExport: true
+    },
+    'ember-cli-workbox': {
+      enabled: environment !== 'test',
+      debug: true,
+      autoRegister: true
+    },
+    'workbox': {
+      globPatterns: ['**\/*.{html,js,css,ttf,jpg}'],
+      globDirectory: './',
+      //globIgnores: [],
     }
   };
+
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
