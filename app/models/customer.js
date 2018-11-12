@@ -8,13 +8,15 @@ export default Model.extend({
 
   apellidos: attr('string'),
 
+  email: attr('string'),
+
   empresa: attr('string'),
 
   comentario: attr('string'),
 
   rating: attr('number'),
 
-  terms: attr('boolean', { defaultValue: false }),
+  terms: attr('boolean', { defaultValue: true }),
 
   createdAt: attr('date', {
     defaultValue() { return new Date(); }

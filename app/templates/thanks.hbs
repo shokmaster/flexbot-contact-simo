@@ -1,3 +1,20 @@
-{{#link-to 'index'}}
-  Volver
-{{/link-to}}
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+
+    <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading text-center" style="padding-top:10px">¡Gracias!</h4>
+      <p class="text-center">Contactaremos contigo próximamente</p>
+    </div>
+
+    <div class="text-center" style="margin-top:70px">
+      {{#link-to 'index'}}
+        <img src="img/services3.jpg">
+      {{/link-to}}
+    </div>
+
+    <p class="text-center">
+      <button class="btn btn-primary btn-lg" {{action 'goToIndex'}}>&laquo; Volver al inicio</button>
+    </p>
+
+  </div>
+</div>

@@ -1,2 +1,9 @@
-<button {{action 'exportData'}}>Exportar</button>
-<button {{action 'clearAll'}}>Limpiar todo</button>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+
+    <p><button class="btn btn-primary" {{action 'goToIndex'}}>&laquo; Volver al inicio</button></p>
+    <p><button class="btn btn-info" {{action 'exportData'}}>Exportar</button></p>
+    <p><button class="btn btn-danger" {{action 'clearAll'}}>Limpiar todo</button></p>
+
+  </div>
+</div>

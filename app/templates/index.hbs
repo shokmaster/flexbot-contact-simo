@@ -1,16 +1,57 @@
-{{#unless isSaved}}
+<div class="row bg-flexbot">
+  <div class="col-md-8 offset-md-2">
 
-<form>
-  {{input value=model.nombre placeholder="nombre"}}
-  {{input value=model.apellidos placeholder="apellidos"}}
-  {{input value=model.empresa placeholder="empresa"}}
-  {{textarea value=model.comentario}}
-  <button {{action "submit"}}>Enviar</button>
-</form>
+    <div style="margin-top:50px">
 
+      {{#bs-form model=model onSubmit=(action "submit") as |form|}}
 
-{{else}}
+        {{#form.group}}
+          {{form.element autocomplete=false controlType="text" label="Nombre *" placeholder="Tu nombre" property="nombre" required=true autofocus=true}}
+        {{/form.group}}
 
-  ¡Gracias! Contactaremos contigo próximamente.
+        {{#form.group}}
+          {{form.element autocomplete=false controlType="text" label="Apellidos *" placeholder="Tus apellidos" property="apellidos" required=true}}
+        {{/form.group}}
 
-{{/unless}}
+        {{#form.group}}
+          {{form.element autocomplete=false controlType="email" label="Correo electrónico *" placeholder="Tu correo electrónico" property="email" required=true}}
+        {{/form.group}}
+
+        {{#form.group}}
+          {{form.element autocomplete=false controlType="text" label="Colegio / Institución / Empresa" placeholder="Si eres un profesional, ¿dónde trabajas?" property="empresa"}}
+        {{/form.group}}
+
+        {{#form.group}}
+          {{form.element controlType="textarea" label="Comentarios" placeholder="¿Quieres decirnos algo más?" property="comentarios"}}
+        {{/form.group}}
+
+        {{#form.group}}
+          <small class="form-text text-muted text-justify">
+            En cumplimiento a lo dispuesto en la Ley Orgánica 15/1999 de 13 de Diciembre de Protección de Datos de Carácter Personal, y el Real Decreto 994/1999, de 11 de junio, que desarrolla la citada ley orgánica, Flexcom Technology S.L. comunica que: Por medio de este formulario se recogen datos de carácter personal necesarios para la gestión y mantenimiento de nuestros servicios. Dichos datos son incluidos en nuestros ficheros, que se encuentran convenientemente inscritos en el Registro de la Agencia de Protección de Datos. Sin perjuicio de las finalidades que en cada caso se indiquen, dicha información será guardada y gestionada con su debida confidencialidad, aplicando las medidas de seguridad informática establecidas en la legislación aplicable para impedir el acceso o uso indebido de sus datos, su manipulación, deterioro o pérdida. La finalidad para la cual está destinado el presente formulario, es la posterior puesta en contacto de la entidad con los usuarios que han realizado algún tipo de consulta ya sea petición de presupuesto u otros, para la relación comercial y/o publicitaria de los servicios o productos de nuestra empresa. En cualquier momento puede Ud. ejercer sus derechos de acceso, rectificación o cancelación en relación con dichos datos, dirigiendo su solicitud a la dirección del titular de los ficheros o accediendo al formulario de Baja de datos personales ubicado en la web flexbot.es > Aviso legal > Baja de datos personales.
+          </small>
+        {{/form.group}}
+
+        {{#form.group}}
+          {{form.element controlType="checkbox" label="Acepto la Política de Protección de Datos" property="terms" required=true}}
+        {{/form.group}}
+
+        <p class="text-center">
+          {{bs-button
+            defaultText="Enviar"
+            type="primary"
+            buttonType="submit"
+            size="lg"
+            disabled=form.isSubmitting
+            block=true
+          }}
+        </p>
+
+        {{#if form.isSubmitting}}
+          Enviando...
+        {{/if}}
+      {{/bs-form}}
+
+    </div>
+
+  </div>
+</div>

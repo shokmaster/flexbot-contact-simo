@@ -45,18 +45,23 @@ export default Route.extend({
     },
 
     clearAll() {
-      this.get('customerStorage').clear();
-      this.get('customerStorage').reset();
-
-      let key;
-      for (let i = 0; i < localStorage.length; i++) {
-        key = localStorage.key(i);
-        if (key.startsWith('customers-')) {
-          localStorage.removeItem(key);
-        }
+      const continuar = window.confirm("Esto borrará todo el almacenamiento local. Asegúrate de haber exportado los datos antes de continuar.");
+      if (continuar) {
+        this.get('customerStorage').clear();
+        this.get('customerStorage').reset();
+        localStorage.clear()
+        //let key;
+        //for (let i = 0; i < localStorage.length; i++) {
+        //  key = localStorage.key(i);
+        //  if (key.startsWith('customers-')) {
+        //    localStorage.removeItem(key);
+        //  }
+        //}
       }
+    },
 
-
+    goToIndex() {
+      this.transitionTo('index');
     }
 
   }

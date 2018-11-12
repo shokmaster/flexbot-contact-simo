@@ -1,0 +1,25 @@
+@font-face {
+  font-family: Zeroes;
+  src: url('../fonts/zeroes-two.ttf')
+}
+
+.nav-blue-flexbot {
+  background-color: #27348b;
+  font-family: Zeroes;
+  font-size: 1.6em;
+}
+
+.container-p-t {
+  padding-top: 100px;
+}
+
+.btn-primary  {
+  background-color: #27348b;
+}
+
+.bg-flexbot {
+  background-image: url(../img/services3.jpg);
+  background-repeat: no-repeat;
+  background-position-x: calc(100vw - 325px);
+  background-position-y: -5px;
+}
