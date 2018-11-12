@@ -32,7 +32,7 @@ module.exports = function(environment) {
       autoRegister: true
     },
     'workbox': {
-      globPatterns: ['**\/*.{html,js,css,ttf,jpg}'],
+      globPatterns: ['**\/*.{html,js,css,ttf,jpg,png,ico}'],
       globDirectory: './',
       //globIgnores: [],
     }
